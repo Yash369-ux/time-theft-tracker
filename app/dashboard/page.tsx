@@ -22,7 +22,7 @@ const [data, setData] = useState<Record<string, number>>({})
 const [customSites, setCustomSites] = useState<string[]>([])
 const [newSite, setNewSite] = useState("")
 const addManualLog = async () => {
-  const res = await fetch("/api/time", {
+  const res = await fetch("https://time-theft-tracker.vercel.app/api/time", { 
     method: "POST",
     headers: {
       "Content-Type": "application/json"
