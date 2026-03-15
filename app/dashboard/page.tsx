@@ -29,8 +29,8 @@ useEffect(() => {
 }, [])
   useEffect(() => {
   const interval = setInterval(() => {
-    fetch("http://localhost:3000/api/time")
-      .then(res => res.json())
+   fetch("/api/time")
+    .then(res => res.json())
       .then(result => {
         setData(result)
       })
