@@ -27,10 +27,10 @@ const addManualLog = async () => {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      website: "manual",
-      seconds: 600
-    })
+   body: JSON.stringify({
+  website: "manual",
+  timeSpent: 600
+})
   })
 
   const result = await res.json()
