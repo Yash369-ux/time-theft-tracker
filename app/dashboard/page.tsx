@@ -21,6 +21,21 @@ export default function Dashboard() {
 const [data, setData] = useState<Record<string, number>>({})
 const [customSites, setCustomSites] = useState<string[]>([])
 const [newSite, setNewSite] = useState("")
+const addManualLog = async () => {
+  const res = await fetch("/api/time", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      site: "manual",
+      seconds: 600
+    })
+  })
+
+  const result = await res.json()
+  console.log(result)
+}
 useEffect(() => {
   const saved = localStorage.getItem("customDistractingSites")
   if (saved) {
@@ -203,7 +218,7 @@ labels: Object.keys(data).filter((site) => site !== "localhost"),
             className="w-full mb-3 p-2 rounded bg-gray-700 text-white"
           />
 
-          <button className="bg-green-600 px-4 py-2 rounded text-white">
+          <button onClick={addManualLog} className="bg-green-600 px-4 py-2 rounded text-white">
             Save
           </button>
         </div>
